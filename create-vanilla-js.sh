@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# 詢問使用者輸入專案名稱
+# 使用者輸入專案名稱
 read -p "Enter Project Name: " projectName
 
-# 檢查專案是否已經存在
+# 檢查同名專案是否已經存在
 if [ -d "$projectName" ]; then
   echo "Project Already Exists!"
   exit 1
 fi
 
-# 創建專案資料夾，如果已經存在則什麼都不做
+# 創建專案資料夾
 mkdir "$projectName"
 
 # 進入專案資料夾
@@ -166,7 +166,11 @@ table {
 
 touch app.js
 
-echo "Project created successfully!"
+git init
+
+git branch -M main
 
 # 使用 VS Code 開啟專案
 code .
+
+echo "Project created successfully!"
